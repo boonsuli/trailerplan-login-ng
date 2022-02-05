@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="app-header">
+  <div fxFlex fxLayout="row" fxLayoutAlign="space-around center">
+    <div>
+      <div class="hamburger hamburger--squeeze" [ngClass]="{'is-active' :isOpen}" (click)="onToggleSidenav()">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </div>
+    </div>
+    <div fxFlex fxLayoutAlign="end" fxHide.gt-xs>
+      Trailerplan gt xs
+    </div>
+    <div fxFlex fxLayout="row" fxLayoutAlign="end" fxFlexAlign="middle">
+      <mat-icon routerLink="/info">person</mat-icon>
+    </div>
+  </div>
+</mat-toolbar>
+

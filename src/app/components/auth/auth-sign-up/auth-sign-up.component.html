@@ -1,0 +1,168 @@
+<div class="sign-up-wrapper" fxLayout="column" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Sign up</mat-card-title>
+    </mat-card-header>
+
+    <form class="signUpForm" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <mat-card-content>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Username" formControlName="username" name="username" required>
+          <button *ngIf="username.value!=null" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('username')">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-error *ngIf="username.hasError('required')">Please enter your username</mat-error>
+          <mat-error *ngIf="username.hasError('pattern')">Invalid username, it should be minimum 3 characters and maximum 25</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email" formControlName="email" name="email" type="email" class="form-control" required>
+          <button *ngIf="email.value!=null" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('email')">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-error *ngIf="email.hasError('required')">Please enter your email</mat-error>
+          <mat-error *ngIf="email.hasError('pattern')">Invalid email format</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input required matInput
+                 placeholder="Password" formControlName="decodedPassword" name="decodedPassword"
+                 [type]="hidePassword ? 'password' : 'text'"
+                 (focus)="innerInputFocussed()"
+                 (blur)="innerInputBlurred()"  >
+          <div class="messagesPassword" *ngIf="passwordFocussed">
+            <label class="col {{ decodedPassword.hasError('required')
+                              || decodedPassword.hasError('hasNumber') ? 'messageFormatError' : 'messageFormatValid' }}"
+                   [ngClass]=" decodedPassword.hasError('required')
+                            || decodedPassword.hasError('hasNumber')  ? 'text-danger' : 'text-success'">
+              <i class="material-icons">
+                {{ decodedPassword.hasError('required') || decodedPassword.hasError('hasNumber') ? 'cancel' : 'check_circle' }}
+              </i>
+              Must contain at least one number.
+            </label><br>
+            <label class="col {{ decodedPassword.hasError('required')
+                              || decodedPassword.hasError('hasNotCapitalCase') ? 'messageFormatError' : 'messageFormatValid' }}"
+                   [ngClass]=" decodedPassword.hasError('required')
+                            || decodedPassword.hasError('hasNotCapitalCase')  ? 'text-danger' : 'text-success'">
+              <i class="material-icons">
+                {{ decodedPassword.hasError('required') || decodedPassword.hasError('hasNotCapitalCase') ? 'cancel' : 'check_circle' }}
+              </i>
+              Must contain at least one letter in capital case.
+            </label><br>
+            <label class="col {{ decodedPassword.hasError('required')
+                              || decodedPassword.hasError('hasSmallCase') ? 'messageFormatError' : 'messageFormatValid' }}"
+                   [ngClass]=" decodedPassword.hasError('required')
+                            || decodedPassword.hasError('hasSmallCase')  ? 'text-danger' : 'text-success'">
+              <i class="material-icons">
+                {{ decodedPassword.hasError('required')
+                || decodedPassword.hasError('hasSmallCase') ? 'cancel' : 'check_circle' }}
+              </i>
+              Must contain at least one letter in small case.
+            </label><br>
+            <label class="col {{ decodedPassword.hasError('required')
+                              || decodedPassword.hasError('hasSpecialCharacters') ? 'messageFormatError' : 'messageFormatValid' }}"
+                   [ngClass]=" decodedPassword.hasError('required')
+                            || decodedPassword.hasError('hasSpecialCharacters')  ? 'text-danger' : 'text-success'">
+              <i class="material-icons">
+                {{ decodedPassword.hasError('required')
+                || decodedPassword.hasError('hasSpecialCharacters') ? 'cancel' : 'check_circle' }}
+              </i>
+              Must contain at least one special character : _.,;:!"`+=<>*~§@#$%^&()
+            </label><br>
+            <label class="col {{ decodedPassword.hasError('required')
+                              || decodedPassword.hasError('hasValidNbCharacters') ? 'messageFormatError' : 'messageFormatValid' }}"
+                   [ngClass]=" decodedPassword.hasError('required')
+                            || decodedPassword.hasError('hasValidNbCharacters')  ? 'text-danger' : 'text-success'">
+              <i class="material-icons">
+                {{ decodedPassword.hasError('required')
+                || decodedPassword.hasError('hasValidNbCharacters') ? 'cancel' : 'check_circle' }}
+              </i>
+              Must contain at least 6 characters and less than 25 characters
+            </label><br>
+          </div>
+          <button *ngIf="decodedPassword.value!=null" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('decodedPassword')">
+            <mat-icon>close</mat-icon>
+          </button>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="decodedPassword.hasError('required')">Please enter your password</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Confirm password" formControlName="confirmPassword" name="confirmPassword" [type]="'password'" (change)="onConfirmPasswordChange()" required>
+          <button *ngIf="confirmPassword.value!=null" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('confirmPassword')">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-error *ngIf="confirmPassword.hasError('required')">Please confirm your password</mat-error>
+          <mat-error *ngIf="confirmPassword.hasError('mismatch')">The 2 password mismatch</mat-error>
+        </mat-form-field>
+
+        <div>
+          <mat-label style="padding-right: 20px;">Login role * :</mat-label>
+          <mat-radio-group aria-label="Select an role" formControlName="role" name="role" required>
+            <mat-radio-button *ngFor="let r of StandardRoles" value="{{r.id}}" style="padding-right: 20px;">{{r.name}}</mat-radio-button>
+          </mat-radio-group>
+          <button *ngIf="role.value!=null" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('role')">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+
+      <mat-card-content *ngIf="role?.value==2">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="First name" formControlName="first_name" name="first_name" [required]="role.value==2">
+          <button *ngIf="first_name.value!=null" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('first_name')">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-error *ngIf="role.value==2 && first_name.hasError('required')">Please enter your first name</mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Last name" formControlName="last_name" name="last_name">
+          <button *ngIf="last_name.value!=null" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('last_name')">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-error *ngIf="role.value==2 && last_name.hasError('required')">Please enter your last name</mat-error>
+        </mat-form-field>
+        <div>
+          <mat-label style="padding-right: 20px;">Gender :</mat-label>
+          <mat-radio-group aria-label="Select an gender" formControlName="gender" name="gender">
+            <mat-radio-button *ngFor="let g of Genders" value="{{g.id}}" class="mat-radio-button" style="padding-right: 20px;">{{g.name}}</mat-radio-button>
+          </mat-radio-group>
+          <button *ngIf="gender.value!=null" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('gender')">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Country" formControlName="country" name="country">
+          <button *ngIf="country.value!=null || country.value!=''" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('country')">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Secret question</mat-label>
+          <input matInput formControlName="secret_question" name="secret_question">
+          <button *ngIf="secret_question.value!=null || secret_question.value!=''" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('secret_question')">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Secret answer</mat-label>
+          <input matInput formControlName="secret_answer" name="secret_answer">
+          <button *ngIf="secret_answer.value!=null || secret_answer.value!=''" matSuffix mat-icon-button aria-label="Clear" (click)="resetFormValue('secret_answer')">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <div class="card card-small" tabindex="0">
+        <button mat-flat-button color="primary" class="btn-block" type="submit">Sign up</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

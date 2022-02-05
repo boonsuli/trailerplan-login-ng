@@ -1,0 +1,29 @@
+<div class="info-wrapper" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>User info : {{user_session.first_name}} {{user_session.last_name}}</mat-card-title>
+        <mat-card-subtitle>{{user_session.username}}</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>Gender : {{user_session.gender}}</mat-list-item>
+        <mat-list-item>Country : {{user_session.country}}</mat-list-item>
+        <mat-list-item>Login role : {{user_session.role_type}}</mat-list-item>
+        <mat-list-item>User category : {{user_session.user_category}}</mat-list-item>
+        <mat-list-item>Secret question : {{user_session.secret_question}}</mat-list-item>
+        <mat-list-item>Secret answer : {{user_session.encoded_secret_answer}}</mat-list-item>
+        <mat-list-item>Secret custom question : {{user_session.encoded_custom_secret_question}}</mat-list-item>
+        <mat-list-item>Secret custom answer : {{user_session.encoded_custom_secret_answer}}</mat-list-item>
+      </mat-list>
+    </mat-card-content>
+
+    <mat-card-footer>
+      update password
+    </mat-card-footer>
+
+  </mat-card>
+</div>
+

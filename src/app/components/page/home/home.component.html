@@ -1,0 +1,31 @@
+<div class="home-wrapper" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <img style="margin-left:-90px; margin-top:-10px" width="50%" height="50%" src="/assets/images/jwt_icon.png">
+      <mat-card-content>
+        <mat-card-title class="card-title">Current session :</mat-card-title>
+        <mat-card-subtitle>{{user_session.first_name}}&nbsp;{{user_session.last_name}}</mat-card-subtitle>
+        <mat-card-subtitle>{{user_session.username}}</mat-card-subtitle>
+      </mat-card-content>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-card style="background-color:lightblue" >
+        <div>
+          <mat-label><b>Header : algorithm (HS256) & token type (JWT)</b></mat-label>
+        </div>
+        <div class="breakword">{{tokenMap.get('header')}}</div>
+      </mat-card>
+      <mat-card style="background-color: bisque">
+        <div><mat-label><b>Payload : username, encoded_password, email</b></mat-label></div>
+        <div class="breakword">{{tokenMap.get('payload')}}</div>
+      </mat-card>
+      <mat-card style="background-color: thistle">
+        <div><mat-label><b>Signature :</b></mat-label></div>
+        <div class="breakword">{{tokenMap.get('signature')}}</div>
+      </mat-card>
+    </mat-card-content>
+
+    <mat-card-footer></mat-card-footer>
+  </mat-card>
+</div>

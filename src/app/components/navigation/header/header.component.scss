@@ -1,0 +1,36 @@
+
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover, a:active{
+  color: lightgray;
+}
+.navigation-items{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+mat-toolbar{
+  border-radius: 3px;
+}
+@media(max-width: 959px){
+  mat-toolbar{
+    border-radius: 0px;
+  }
+}
+$hamburger-active-layer-color   : #FFFFFF !default;
+$hamburger-active-hover-opacity : 0.7 !default;
+$hamburger-active-hover-filter  : #FFAADD;
+$hamburger-hover-opacity        : 0.7 !default;
+$hamburger-hover-filter         : 0.7 !default;
+$hamburger-layer-border-radius  : 1px !default;
+$hamburger-layer-color          : #FFFFFF !default;
+$hamburger-layer-height         : 2px !default;
+$hamburger-layer-width          : 19px !default;
+$hamburger-layer-spacing        : 4px !default;
+$hamburger-padding-x            : 0px !default;
+$hamburger-padding-y            : 0px !default;
+$hamburger-types                : (squeeze);
+@import "node_modules/hamburgers/_sass/hamburgers/hamburgers";
+
