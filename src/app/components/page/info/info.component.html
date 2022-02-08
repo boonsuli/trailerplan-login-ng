@@ -10,18 +10,19 @@
 
     <mat-card-content>
       <mat-card style="background-color:lightblue">
-        <div><mat-label><b>Gender :</b></mat-label>{{user_session.gender}}</div>
-        <div><mat-label><b>Country :</b></mat-label>{{user_session.country}}</div>
+        <div><mat-label>Gender :</mat-label> {{user_session.gender}}</div>
+        <div><mat-label>Country :</mat-label> {{user_session.country}}</div>
       </mat-card>
       <mat-card style="background-color: bisque">
-        <div><mat-label><b>Login role :</b></mat-label>{{user_session.role_type}}</div>
-        <div><mat-label><b>User category :</b></mat-label>{{user_session.user_category}}</div>
+        <div><mat-label>Login role :</mat-label> {{user_session.role_type}}</div>
+        <div><mat-label>User category :</mat-label> {{user_session.user_category}}</div>
       </mat-card>
       <mat-card style="background-color: thistle">
-        <div><mat-label><b>Secret question :</b></mat-label>{{user_session.secret_question}}</div>
-        <div><mat-label><b>Secret answer :</b></mat-label>{{user_session.encoded_secret_answer}}</div>
-        <div><mat-label><b>Secret custom question :</b></mat-label>{{user_session.encoded_custom_secret_question}}</div>
-        <div><mat-label><b>Secret custom answer :</b></mat-label>{{user_session.encoded_custom_secret_answer}}</div>
+        <div class="password-container"><div class="password-label"><mat-label>Password :</mat-label></div> <div class="password-value">{{user_session.password}}</div></div>
+        <div><mat-label>Secret question :</mat-label> {{user_session.secret_question}}</div>
+        <div><mat-label>Secret answer :</mat-label> {{user_session.encoded_secret_answer}}</div>
+        <div><mat-label>Secret custom question :</mat-label> {{user_session.encoded_custom_secret_question}}</div>
+        <div><mat-label>Secret custom answer :</mat-label> {{user_session.encoded_custom_secret_answer}}</div>
       </mat-card>
     </mat-card-content>
 
