@@ -25,6 +25,17 @@
 .card-title {
   font-size: 14px;
 }
+.button-action {
+  border-radius: 5px;
+}
+.card-footer-container {
+  /* needed styles below */
+  display: flex;
+  justify-content: space-between;
+  align-content: end;
+  justify-content: end;
+  padding: 10px 15px 15px 10px;
+}
 .mat-card-header {
   width: 500px;
   height: 100px;
