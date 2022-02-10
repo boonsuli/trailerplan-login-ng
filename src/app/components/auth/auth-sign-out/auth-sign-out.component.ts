@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 
 @Component({
   selector: 'app-auth-sign-out',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthSignOutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private tokenStorage: TokenStorageService,
+  ) {
+
+  }
 
   ngOnInit(): void {
+    console.log(this.tokenStorage.getToken());
+    console.log(this.tokenStorage.getUser());
   }
+
 
 }

@@ -34,6 +34,7 @@ import {User} from "./models/user.model";
 import {RouterModule} from "@angular/router";
 import {CdkColumnDef} from "@angular/cdk/table";
 import { AuthSignOutComponent } from './components/auth/auth-sign-out/auth-sign-out.component';
+import { DialogSignOutComponent } from './components/dialog/dialog-sign-out/dialog-sign-out.component';
 //import {OpenSidebarOnSwipeDirective} from "./components/navigation/sidenav/open-sidebar-on-swipe.directive";
 
 @NgModule({
@@ -49,7 +50,7 @@ import { AuthSignOutComponent } from './components/auth/auth-sign-out/auth-sign-
     HeaderComponent,
     FooterComponent,
     SidenavListComponent,
-    //OpenSidebarOnSwipeDirective,
+    DialogSignOutComponent,
   ],
   imports: [
     BrowserModule,
