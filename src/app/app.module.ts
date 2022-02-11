@@ -35,6 +35,7 @@ import {RouterModule} from "@angular/router";
 import {CdkColumnDef} from "@angular/cdk/table";
 import { AuthSignOutComponent } from './components/auth/auth-sign-out/auth-sign-out.component';
 import { DialogSignOutComponent } from './components/dialog/dialog-sign-out/dialog-sign-out.component';
+import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 //import {OpenSidebarOnSwipeDirective} from "./components/navigation/sidenav/open-sidebar-on-swipe.directive";
 
 @NgModule({
@@ -59,6 +60,7 @@ import { DialogSignOutComponent } from './components/dialog/dialog-sign-out/dial
     AngularMaterialModule,
     MatToolbarModule,
     MatMenuModule,
+    MatDialogModule,
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
@@ -75,6 +77,7 @@ import { DialogSignOutComponent } from './components/dialog/dialog-sign-out/dial
   ],
   providers: [
     authInterceptorProviders,
+    MatDialogRef,
     CdkColumnDef,
     AuthService,
     UserService,

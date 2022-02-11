@@ -30,9 +30,8 @@
 }
 .card-footer-container {
   display: flex;
-  justify-content: space-between;
-  align-content: end;
-  justify-content: end;
+  justify-content: flex-end;
+  align-items: flex-end;
   padding: 10px 15px 15px 10px;
 }
 .mat-card-header {
@@ -40,8 +39,8 @@
   height: 100px;
   padding: 0;
   margin: 0;
-  align-items: normal;
-  justify-content: flex-start;
+  align-items: flex-end;
+  justify-content: flex-end;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
