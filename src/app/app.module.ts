@@ -23,7 +23,7 @@ import {PasswordService} from "./services/auth/password.service";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {AngularMaterialModule} from "./angular-material.module";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatSidenav, MatSidenavModule} from "@angular/material/sidenav";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
@@ -36,6 +36,7 @@ import {CdkColumnDef} from "@angular/cdk/table";
 import { AuthSignOutComponent } from './components/auth/auth-sign-out/auth-sign-out.component';
 import { DialogSignOutComponent } from './components/dialog/dialog-sign-out/dialog-sign-out.component';
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import {SidenavService} from "./services/widget/sidenav.service";
 //import {OpenSidebarOnSwipeDirective} from "./components/navigation/sidenav/open-sidebar-on-swipe.directive";
 
 @NgModule({
@@ -77,13 +78,21 @@ import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
   ],
   providers: [
     authInterceptorProviders,
-    MatDialogRef,
     CdkColumnDef,
     AuthService,
     UserService,
     PasswordService,
     FormHelperService,
+    SidenavService,
     User,
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+    {
+      provide: MatSidenav,
+      useValue: {}
+    },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -15,8 +15,6 @@ export class AuthSignOutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.tokenStorage.getToken());
-    console.log(this.tokenStorage.getUser());
   }
 
 

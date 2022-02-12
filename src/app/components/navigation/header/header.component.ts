@@ -10,8 +10,6 @@ export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
   public isOpen = false;
 
-
-
   constructor() { }
 
   ngOnInit(): void {

@@ -1,6 +1,8 @@
-import {Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {DialogSignOutComponent} from "../../dialog/dialog-sign-out/dialog-sign-out.component";
+import {SidenavService} from "../../../services/widget/sidenav.service";
+import {MatSidenav} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-sidenav',
@@ -13,22 +15,27 @@ export class SidenavListComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<Component>,
               private dialog: MatDialog,
+              private sidenavService: SidenavService,
+              public sidenav: MatSidenav,
               ) { }
 
   ngOnInit(): void {
+    this.sidenavService.setSidenav(this.sidenav);
   }
 
   public onSidenavClose = () => {
-    this.sidenavClose.emit();
+    //this.sidenavService.close();
+    this.sidenav.toggle();
   }
 
   openDialogSignOut(): void {
     let dialogRef = this.dialog.open(DialogSignOutComponent, {
-      height: '400px',
+      height: '300px',
       width: '600px',
     });
-    dialogRef.afterClosed().subscribe(data=> {
-      console.log('dialog close');
-    })
+    dialogRef.afterClosed().subscribe(data => {
+      console.log('data:'+ data);
+      console.log('sidenav dialog close');
+    });
   }
 }
