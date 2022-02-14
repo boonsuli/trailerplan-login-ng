@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {DialogSignOutComponent} from "../../dialog/dialog-sign-out/dialog-sign-out.component";
 import {SidenavService} from "../../../services/widget/sidenav.service";
 import {MatSidenav} from "@angular/material/sidenav";
+import {HeaderComponent} from "../header/header.component";
 
 @Component({
   selector: 'app-sidenav',
@@ -14,6 +15,7 @@ export class SidenavListComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
 
   constructor(public dialogRef: MatDialogRef<Component>,
+              public headerComponent: HeaderComponent,
               private dialog: MatDialog,
               private sidenavService: SidenavService,
               public sidenav: MatSidenav,
@@ -24,8 +26,10 @@ export class SidenavListComponent implements OnInit {
   }
 
   public onSidenavClose = () => {
-    //this.sidenavService.close();
+    // @ts-ignore
+    document.getElementById("hamburger-menu-icon").classList.remove("is-active");
     this.sidenav.toggle();
+    this.headerComponent.isOpen = !this.headerComponent.isOpen;
   }
 
   openDialogSignOut(): void {

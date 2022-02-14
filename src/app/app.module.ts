@@ -93,6 +93,10 @@ import {SidenavService} from "./services/widget/sidenav.service";
       provide: MatSidenav,
       useValue: {}
     },
+    {
+      provide: HeaderComponent,
+      useValue: {}
+    },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

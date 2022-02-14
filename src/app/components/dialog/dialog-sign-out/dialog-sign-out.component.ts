@@ -1,10 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {Router} from "@angular/router";
 import {MatDialogRef} from "@angular/material/dialog";
-import {MatSidenav} from "@angular/material/sidenav";
-import {SidenavListComponent} from "../../navigation/sidenav/sidenav.component";
 import {SidenavService} from "../../../services/widget/sidenav.service";
+import {HeaderComponent} from "../../navigation/header/header.component";
 
 @Component({
   selector: 'app-dialog-sign-out',
@@ -15,6 +14,7 @@ export class DialogSignOutComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogSignOutComponent>,
+    public headerComponent: HeaderComponent,
     private tokenStorage: TokenStorageService,
     private sidenav: SidenavService,
     private router:Router,
@@ -35,5 +35,6 @@ export class DialogSignOutComponent implements OnInit {
   dialogCancel(): void {
     console.log('dialog cancel');
     this.dialogRef.close();
+    this.headerComponent.isOpen = !this.headerComponent.isOpen;
   }
 }
