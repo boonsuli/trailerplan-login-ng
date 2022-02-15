@@ -49,13 +49,13 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 
 const materialModules = [
-  CdkTreeModule,
   A11yModule,
   BidiModule,
   DragDropModule,
-  ScrollingModule,
   CdkStepperModule,
   CdkTableModule,
+  CdkTreeModule,
+  DragDropModule,
   MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -78,6 +78,7 @@ const materialModules = [
   MatPaginatorModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
+  MatRadioModule,
   MatRippleModule,
   MatSelectModule,
   MatSidenavModule,
@@ -91,9 +92,9 @@ const materialModules = [
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,
-  MatRadioModule,
   OverlayModule,
-  PortalModule
+  PortalModule,
+  ScrollingModule
 ];
 
 @NgModule({
