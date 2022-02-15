@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public onToggleSidenav = () => {
-    console.log('dans headercomponent')
+    console.log('headerComponent onToggleSidenav')
     this.sidenavToggle.emit();
     this.isOpen = !this.isOpen;
   }

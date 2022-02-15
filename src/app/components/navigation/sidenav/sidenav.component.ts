@@ -30,16 +30,18 @@ export class SidenavListComponent implements OnInit {
     document.getElementById("hamburger-menu-icon").classList.remove("is-active");
     this.sidenav.toggle();
     this.headerComponent.isOpen = !this.headerComponent.isOpen;
+    console.log("sidenavComponent onSidenavClose");
   }
 
   openDialogSignOut(): void {
     let dialogRef = this.dialog.open(DialogSignOutComponent, {
-      height: '300px',
-      width: '600px',
+      height: '200px',
+      width: '400px',
+      hasBackdrop: false
     });
     dialogRef.afterClosed().subscribe(data => {
-      console.log('data:'+ data);
-      console.log('sidenav dialog close');
+      console.log('sidenavComponent onDialogSignOut data:'+ data);
+      console.log('sidenavComponent onDialogSignOut close');
     });
   }
 }
