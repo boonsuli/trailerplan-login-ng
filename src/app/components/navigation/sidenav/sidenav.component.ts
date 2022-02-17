@@ -37,7 +37,8 @@ export class SidenavListComponent implements OnInit {
     let dialogRef = this.dialog.open(DialogSignOutComponent, {
       height: '200px',
       width: '400px',
-      hasBackdrop: false
+      hasBackdrop: false,
+      panelClass: 'dialog-box'
     });
     dialogRef.afterClosed().subscribe(data => {
       console.log('sidenavComponent onDialogSignOut data:'+ data);

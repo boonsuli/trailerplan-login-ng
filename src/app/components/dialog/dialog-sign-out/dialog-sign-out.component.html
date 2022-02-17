@@ -1,12 +1,6 @@
-<div color="primary" class="dialog-header">
-  <mat-card-title color="primary" class="title-app">Sign-out TrailerPlan</mat-card-title>
-</div>
-
-<!--h2 mat-dialog-title>Sign-out TrailerPlan</h2-->
-<mat-dialog-content class="mat-typography">
-  <p>dialog-sign-out works!</p>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-raised-button color="accent" (click)="dialogCancel()">Cancel</button>
+<h2 mat-dialog-title>Logout TrailerPlan?</h2>
+<mat-dialog-content>This will exit the application and remove the user context</mat-dialog-content>
+<mat-dialog-actions align="end" >
+  <button mat-raised-button color="accent" (click)="dialogCancel()">CANCEL</button>
   <button mat-raised-button color="primary" (click)="signOut()" [mat-dialog-close]="true" cdkFocusInitial>OK</button>
 </mat-dialog-actions>
