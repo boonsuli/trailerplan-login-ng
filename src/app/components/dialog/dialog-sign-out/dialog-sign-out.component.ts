@@ -6,9 +6,9 @@ import {SidenavService} from "../../../services/widget/sidenav.service";
 import {HeaderComponent} from "../../navigation/header/header.component";
 
 @Component({
-  selector: 'app-dialog-sign-out',
+  selector: 'dialog-sign-out',
   templateUrl: './dialog-sign-out.component.html',
-  styleUrls: ['./dialog-sign-out.component.scss']
+  styleUrls: ['./dialog-sign-out.component.scss'],
 })
 export class DialogSignOutComponent implements OnInit {
 

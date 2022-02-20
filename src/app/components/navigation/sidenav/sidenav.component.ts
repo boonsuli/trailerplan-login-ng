@@ -16,7 +16,7 @@ export class SidenavListComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<Component>,
               public headerComponent: HeaderComponent,
-              private dialog: MatDialog,
+              private matDialogService: MatDialog,
               private sidenavService: SidenavService,
               public sidenav: MatSidenav,
               ) { }
@@ -34,15 +34,15 @@ export class SidenavListComponent implements OnInit {
   }
 
   openDialogSignOut(): void {
-    let dialogRef = this.dialog.open(DialogSignOutComponent, {
-      height: '200px',
-      width: '400px',
+    const dialogRef = this.matDialogService.open(DialogSignOutComponent, {
       hasBackdrop: false,
       panelClass: 'dialog-box'
     });
     dialogRef.afterClosed().subscribe(data => {
       console.log('sidenavComponent onDialogSignOut data:'+ data);
       console.log('sidenavComponent onDialogSignOut close');
+    });
+    dialogRef.afterOpened().subscribe(data => {
     });
   }
 }
