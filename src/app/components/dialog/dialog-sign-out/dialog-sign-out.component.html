@@ -1,6 +1,8 @@
-<h2 mat-dialog-title>Logout TrailerPlan?</h2>
-<mat-dialog-content><p>This will exit the application and remove the user context</p></mat-dialog-content>
-<mat-dialog-actions align="end" >
-  <button mat-raised-button color="accent" (click)="dialogCancel()">CANCEL</button>
-  <button mat-raised-button color="primary" (click)="signOut()" [mat-dialog-close]="true" cdkFocusInitial>OK</button>
-</mat-dialog-actions>
+<div mat-dialog-content>
+  <h2 mat-dialog-title>Logout TrailerPlan?</h2>
+  <mat-dialog-content><p>This will exit the application and remove the user context</p></mat-dialog-content>
+  <mat-dialog-actions align="end" >
+    <button mat-raised-button color="accent" (click)="dialogCancel()">CANCEL</button>
+    <button mat-raised-button color="primary" (click)="signOut()" [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+  </mat-dialog-actions>
+</div>
