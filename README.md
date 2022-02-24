@@ -17,4 +17,13 @@ change hamburger menu to close
 reactive forms
 create password with check
 call python Django api
+open logout dialog
+
+home:display the token jwt, header/payload/signature
+user infos:the user infos
+logout:open confirmation modal dialog
+  cancel:close the dialog
+  ok:close the dialog, return to signin page, remove token jwt
+
+signin page:
 
