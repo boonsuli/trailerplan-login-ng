@@ -37,6 +37,7 @@ import { AuthSignOutComponent } from './components/auth/auth-sign-out/auth-sign-
 import { DialogSignOutComponent } from './components/dialog/dialog-sign-out/dialog-sign-out.component';
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {SidenavService} from "./services/widget/sidenav.service";
+import { DialogConfirmationTemplateComponent } from './components/dialog/dialog-confirmation-template/dialog-confirmation-template.component';
 //import {OpenSidebarOnSwipeDirective} from "./components/navigation/sidenav/open-sidebar-on-swipe.directive";
 
 @NgModule({
@@ -53,6 +54,7 @@ import {SidenavService} from "./services/widget/sidenav.service";
     FooterComponent,
     SidenavListComponent,
     DialogSignOutComponent,
+    DialogConfirmationTemplateComponent,
   ],
   imports: [
     BrowserModule,
