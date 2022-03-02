@@ -5,24 +5,4 @@
   right: 0;
   z-index: 998;
 }
-::ng-deep.dialog-box {
-  mat-dialog-container {
-    padding: 10px 10px 10px 10px;
-    background: #FFFFFF;
-    position: relative;
-    display: block;
-    width: 480px;
-    height: 140px;
-    margin: 0 -24px;
-    top: 0;
-    opacity: 1;
-    float: left;
-    border-radius: 10px;
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    z-index: 5;
-    overflow-x: hidden !important;
-    overflow-y: hidden !important;
-  }
-}
+
