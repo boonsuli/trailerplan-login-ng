@@ -1,5 +1,5 @@
 import {Component, OnInit, Output, EventEmitter, ViewChild} from '@angular/core';
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {DialogSignOutComponent} from "../../dialog/dialog-sign-out/dialog-sign-out.component";
 import {SidenavService} from "../../../services/widget/sidenav.service";
 import {MatSidenav} from "@angular/material/sidenav";
@@ -34,10 +34,16 @@ export class SidenavListComponent implements OnInit {
   }
 
   openDialogSignOut(): void {
-    const dialogRef = this.dialog.open(DialogSignOutComponent, {
-      hasBackdrop: false,
-      panelClass: 'dialog-box'
-    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      title: 'dialog'
+    };
+    dialogConfig.hasBackdrop = false;
+    dialogConfig.panelClass = 'dialog-box';
+
+    const dialogRef = this.dialog.open(DialogSignOutComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(data => {
       console.log('sidenavComponent onDialogSignOut data:'+ data);
       console.log('sidenavComponent onDialogSignOut close');
