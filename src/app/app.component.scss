@@ -85,14 +85,12 @@ main {
   padding: 10px;
 }
 
-mat-dialog-container {
-  padding: 10px 10px 10px 10px;
+.dialog-container .mat-dialog-container {
+  padding: 10px;
   background-color: #FFAA00 !important;
   position: relative;
-  display: block;
-  width: 480px;
-  height: 140px;
-  margin: 0 -24px;
+  width: 600px;
+  height: 160px;
   top: 0;
   opacity: 1;
   float: left;

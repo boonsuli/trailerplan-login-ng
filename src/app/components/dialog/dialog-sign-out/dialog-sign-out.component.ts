@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {Router} from "@angular/router";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {SidenavService} from "../../../services/widget/sidenav.service";
 import {HeaderComponent} from "../../navigation/header/header.component";
 
@@ -17,8 +17,15 @@ export class DialogSignOutComponent implements OnInit {
     public headerComponent: HeaderComponent,
     private tokenStorage: TokenStorageService,
     private sidenav: SidenavService,
-    private router:Router,
-  ) { }
+    private router: Router,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+    this.title = data.title;
+    this.description = data.description;
+  }
+
+  public title:string = '';
+  public description:string = '';
 
   ngOnInit(): void {
   }
@@ -37,4 +44,5 @@ export class DialogSignOutComponent implements OnInit {
     this.dialogRef.close();
     this.headerComponent.isOpen = !this.headerComponent.isOpen;
   }
+
 }
