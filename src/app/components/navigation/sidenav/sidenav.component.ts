@@ -39,8 +39,8 @@ export class SidenavListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.hasBackdrop = false;
     dialogConfig.panelClass = 'dialog-container';
-    dialogConfig.height = '170px';
-    dialogConfig.width = '500px';
+    dialogConfig.maxHeight = '170px';
+    dialogConfig.maxWidth = '500px';
     dialogConfig.data = {
       title: 'Logout TrailerPlan ?',
       description: 'This will exit the application and remove the user context'
