@@ -39,7 +39,8 @@ export class SidenavListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.hasBackdrop = false;
     dialogConfig.panelClass = 'dialog-container';
-    dialogConfig.maxHeight = '170px';
+    dialogConfig.height = '160px';
+    dialogConfig.maxHeight = '200px';
     dialogConfig.maxWidth = '500px';
     dialogConfig.data = {
       title: 'Logout TrailerPlan ?',

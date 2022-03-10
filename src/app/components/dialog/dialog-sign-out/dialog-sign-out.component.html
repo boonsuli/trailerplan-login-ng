@@ -1,10 +1,8 @@
 <div class="dialog-container">
-  <div mat-dialog-content>
     <h3 mat-dialog-title>{{title}}</h3>
     <mat-dialog-content>{{description}}</mat-dialog-content>
     <mat-dialog-actions align="end" fxFlexAlign>
       <button mat-raised-button color="accent" (click)="dialogCancel()">CANCEL</button>
       <button mat-raised-button color="primary" (click)="signOut()" [mat-dialog-close]="true" cdkFocusInitial>OK</button>
     </mat-dialog-actions>
-  </div>
 </div>
