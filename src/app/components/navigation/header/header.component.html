@@ -11,7 +11,7 @@
       <mat-card-title class="title-app">Trailerplan</mat-card-title>
     </div>
     <div fxFlex fxLayoutAlign="end" fxLayout="row" fxFlexAlign="middle">
-      <mat-icon routerLink="/info">person</mat-icon>
+      <mat-icon *ngIf="isCurrentUser()" [routerLink]="['/info']">person</mat-icon>
     </div>
   </div>
 </mat-toolbar>

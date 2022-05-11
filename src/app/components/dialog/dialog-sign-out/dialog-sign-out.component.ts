@@ -36,7 +36,11 @@ export class DialogSignOutComponent implements OnInit {
     console.log('from dialog : '+this.tokenStorage.getUser());
     this.dialogRef.close();
     this.headerComponent.isOpen = !this.headerComponent.isOpen;
-    //this.router.navigateByUrl('/auth-sign-in');
+    this.router.navigateByUrl('/auth-sign-in')
+      .then(r => {
+        this.tokenStorage.cleanSession();
+        console.log('logout:' + r);
+      });
   }
 
   dialogCancel(): void {
